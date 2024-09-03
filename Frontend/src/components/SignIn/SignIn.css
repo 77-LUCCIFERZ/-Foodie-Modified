@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+
+/* Scoped styles for Sign-In page */
+.registration-page * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.registration-page body {
+    font-family: 'Poppins', sans-serif;
+    background: #4e54c8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.registration-page .background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    background: #4e54c8;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.registration-page .background span {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 30px; /* Increased size */
+    height: 30px; /* Increased size */
+    background: rgba(255, 255, 255, 0.3); /* Slightly more visible */
+    animation: registrationPageAnimate 25s linear infinite;
+    bottom: -150px;
+}
+
+.registration-page .background span:nth-child(1) {
+    left: 25%;
+    width: 100px; /* Increased size */
+    height: 100px; /* Increased size */
+    animation-delay: 0s;
+}
+
+.registration-page .background span:nth-child(2) {
+    left: 10%;
+    width: 30px; /* Increased size */
+    height: 30px; /* Increased size */
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.registration-page .background span:nth-child(3) {
+    left: 70%;
+    width: 30px; /* Increased size */
+    height: 30px; /* Increased size */
+    animation-delay: 4s;
+}
+
+.registration-page .background span:nth-child(4) {
+    left: 40%;
+    width: 80px; /* Increased size */
+    height: 80px; /* Increased size */
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.registration-page .background span:nth-child(5) {
+    left: 65%;
+    width: 30px; /* Increased size */
+    height: 30px; /* Increased size */
+    animation-delay: 0s;
+}
+
+.registration-page .background span:nth-child(6) {
+    left: 75%;
+    width: 140px; /* Increased size */
+    height: 140px; /* Increased size */
+    animation-delay: 3s;
+}
+
+.registration-page .background span:nth-child(7) {
+    left: 35%;
+    width: 200px; /* Increased size */
+    height: 200px; /* Increased size */
+    animation-delay: 7s;
+}
+
+.registration-page .background span:nth-child(8) {
+    left: 50%;
+    width: 40px; /* Increased size */
+    height: 40px; /* Increased size */
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.registration-page .background span:nth-child(9) {
+    left: 20%;
+    width: 30px; /* Increased size */
+    height: 30px; /* Increased size */
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.registration-page .background span:nth-child(10) {
+    left: 85%;
+    width: 200px; /* Increased size */
+    height: 200px; /* Increased size */
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes registrationPageAnimate {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+.registration-page .container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    padding: 2rem;
+    width: 100%;
+    max-width: 380px;
+    margin: auto; /* Center horizontally */
+    position: absolute; /* Position relative to parent */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to center */
+    animation: registrationPageFadeIn 1s ease-out;
+}
+
+@keyframes registrationPageFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.registration-page .registration-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+    animation: registrationPageSlideDown 0.5s ease-out;
+}
+
+@keyframes registrationPageSlideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.registration-page .input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    animation: registrationPageSlideUp 0.5s ease-out;
+}
+
+@keyframes registrationPageSlideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.registration-page .input-group input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.registration-page .input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #666;
+    pointer-events: none;
+    transition: 0.3s ease all;
+}
+
+.registration-page .input-group input:focus ~ label,
+.registration-page .input-group input:valid ~ label {
+    top: -20px;
+    font-size: 12px;
+    color: #5264AE;
+}
+
+.registration-page .input-group .fas,
+.registration-page .input-group .far {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    color: #666;
+    transition: 0.3s ease all;
+}
+
+.registration-page .input-group input:focus ~ .fas,
+.registration-page .input-group input:valid ~ .fas,
+.registration-page .input-group input:focus ~ .far,
+.registration-page .input-group input:valid ~ .far {
+    color: #5264AE;
+    transform: translateX(-5px);
+}
+
+.registration-page .btn-register,
+.registration-page .login,
+.registration-page .btn-google {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: registrationPagePulse 2s infinite;
+}
+
+@keyframes registrationPagePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.registration-page .btn-register {
+    background-color: #5264AE;
+    margin-bottom: 1rem;
+}
+
+.registration-page .btn-register:hover {
+    background-color: #3f51b5;
+    animation: none;
+}
+
+.registration-page .btn-google {
+    background-color: #db4437;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-page .login {
+    background-color: #2a0bc1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3px;
+}
+
+.registration-page .btn-google:hover {
+    background-color: #c1351d;
+    animation: none;
+}
+
+.registration-page .login:hover {
+    background-color: #107d57;
+    animation: none;
+}
+
+.registration-page .login i {
+    padding: 5px;
+}
+
+.registration-page .btn-google i {
+    margin-right: 10px;
+}
+
+.registration-page .separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.registration-page .separator::before,
+.registration-page .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.registration-page .separator span {
+    padding: 0 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+.registration-page .input-group::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #5264AE;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.registration-page .input-group:hover::after {
+    transform: scaleX(1);
+}

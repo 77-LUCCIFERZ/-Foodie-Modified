@@ -1,0 +1,186 @@
+.navbar{
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #CED1DA; */
+}
+.navbar.logo{
+    width: 150px;
+
+}
+.navbar-menu{
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    color:#3a13ae;
+    font-size:18px;
+
+}
+.navbar-right{
+    display: flex;
+    align-items: center;
+    gap:40px;
+
+}
+.navbar button{
+    background: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    color:blueviolet;
+    border: 1px solid #2B2E63;
+    padding:10px 30px;
+    border-radius: 50px;
+    cursor:pointer ;
+    transition:0.2;
+    
+    
+}
+.navbar button:hover{
+    background-color: #7a25f07c;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform-style: preserve-3d;
+    transform: scale(1.45);
+
+
+}
+.navbar .active{
+    padding-bottom: 2px;
+    border-bottom: 2px solid #57ADBF;
+}
+.navbar li{
+    cursor: pointer;
+}
+.navbar-search-icon{
+    position: relative;
+   
+
+}
+.navbar-search-icon .dot{
+position: absolute;
+min-width: 10px;
+min-height: 10px;
+background-color: tomato;
+border-radius: 5px;
+top:-8px;
+right:-8px;
+
+}
+/* Large Desktops (1200px and above) */
+@media (max-width: 1200px) {
+    /* Slight adjustments for larger desktops */
+    .navbar .logo {
+        width: 160px;
+    }
+    .navbar-menu {
+        gap: 18px;
+        font-size: 17px;
+    }
+    .navbar-right {
+        gap: 35px;
+    }
+    .navbar-right img {
+        width: 24px;
+    }
+    .navbar-right button {
+        padding: 9px 28px;
+        font-size: 16px;
+    }
+}
+
+/* Laptops and Small Desktops (up to 1024px) */
+@media (max-width: 1024px) {
+    /* Adjustments for laptops */
+    .navbar .logo {
+        width: 140px;
+    }
+    .navbar-menu {
+        gap: 16px;
+        font-size: 16px;
+    }
+    .navbar-right {
+        gap: 30px;
+    }
+    .navbar-right img {
+        width: 22px;
+    }
+    .navbar-right button {
+        padding: 8px 25px;
+    }
+}
+
+/* Tablets (up to 768px) - Example: iPad */
+@media (max-width: 768px) {
+    /* Significant changes for tablets */
+    .navbar .logo {
+        width: 120px;
+    }
+    .navbar-menu {
+        gap: 14px;
+        font-size: 15px;
+    }
+    .navbar-right {
+        gap: 25px;
+    }
+    .navbar-right img {
+        width: 20px;
+    }
+    .navbar-right button {
+        padding: 7px 20px;
+        font-size: 15px;
+    }
+}
+
+/* Large Smartphones (up to 600px) - Example: iPhone Plus, Galaxy S series */
+@media (max-width: 600px) {
+    /* Adjustments for large smartphones */
+    .navbar .logo {
+        width: 100px;
+    }
+    .navbar-menu {
+        display: none; /* Hide menu and show hamburger */
+    }
+    .hamburger {
+        display: flex;
+    }
+    .navbar-right {
+        gap: 20px;
+    }
+    .navbar-right button {
+        padding: 6px 18px;
+        font-size: 14px;
+    }
+}
+
+/* Medium Smartphones (up to 480px) - Example: iPhone SE, small Android phones */
+@media (max-width: 480px) {
+    /* Tailored for medium-sized smartphones */
+    .navbar .logo {
+        width: 90px;
+    }
+    .navbar-right {
+        gap: 15px;
+    }
+    .navbar-right img {
+        width: 18px;
+    }
+    .navbar-right button {
+        padding: 5px 15px;
+        font-size: 13px;
+    }
+}
+
+/* Small Smartphones (up to 360px) - Example: older Android phones */
+@media (max-width: 360px) {
+    /* Adjustments for smaller smartphones */
+    .navbar .logo {
+        width: 80px;
+    }
+    .navbar-right {
+        gap: 10px;
+    }
+    .navbar-right button {
+        padding: 4px 12px;
+        font-size: 12px;
+    }
+}
