@@ -1,38 +1,170 @@
-.add{
-    width: 70%;
-    margin-left: max(5vw,25px);
-    margin-top: 50px;
-    color: #6d6d6d;
-    font-size: 17px;
+.add {
+  position: relative;
+  width: 70%;
+  margin-left: max(5vw, 25px);
+  margin-top: 50px;
+  color: #FFFFFF; /* White text */
+  font-size: 17px;
+  font-display: swap;
+  font-weight: 500;
+  background-image: url('https://img.freepik.com/free-photo/vegetables-set-left-black-slate_1220-685.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1725494400&semt=ais_hybrid');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  min-height: 100vh;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
 }
-.add form{
-    gap: 20px;
 
+/* Content area with frosted glass effect */
+.content {
+  position: relative;
+  z-index: 2;
+  color: #000000; /* Black text for better contrast */
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2); /* Light transparent background */
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
-.add-img-upload img {
-  width: 120px;
+
+/* Headings (h1, h2, h3) with vibrant orange color and glow */
+.content h1,
+.content h2,
+.content h3 {
+  color: #FFA500; /* Bright orange */
+  text-shadow: 0 0 15px rgba(255, 165, 0, 0.8), 0 0 25px rgba(255, 165, 0, 1); /* Orange glow */
 }
-.add-product-name, .add-product-description {
-  width: max(40%,280px);
-} 
-.add-product-name input , .add-product-description textarea  {
-  padding: 10px;
+
+.content:hover {
+  transform: translateY(-5px);
 }
-.add-category-price {
+
+/* Form styling with green glow and soft shadow effects */
+.add form {
+  gap: 20px;
   display: flex;
-  gap: 30px;
+  flex-direction: column;
 }
-.add-category-price select, .add-category-price input{
+
+/* Soft green glow for inputs and textareas */
+.add-product-name input,
+.add-product-description textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 0, 0.6); /* Soft green border */
+  background: rgba(0, 0, 0, 0.35); /* Darker background for contrast */
+  color: #FFFFFF; /* White text */
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 15px rgba(0, 255, 0, 0.5); /* Green glow */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: 17px;
+}
+
+.add-product-name input:hover,
+.add-product-description textarea:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.9); /* Stronger green glow on hover */
+  transform: scale(1.05);
+}
+
+/* Green glow for select and input elements */
+.add-category-price select,
+.add-category-price input {
+  padding: 12px;
+  max-width: 140px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 255, 0, 0.6);
+  background: rgba(0, 0, 0, 0.35);
+  color: #FFFFFF;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 15px rgba(0, 255, 0, 0.5);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: 17px;
+}
+
+.add-category-price select:hover,
+.add-category-price input:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 0, 0.9); /* Stronger green glow on hover */
+  transform: scale(1.05);
+}
+
+/* Button with green glow and dark background */
+.add-btn {
+  max-width: 160px;
+  padding: 12px;
+  border: none;
+  background-color: #000000; /* Black background */
+  color: #00FF00; /* Bright green text */
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 255, 0, 0.7); /* Green glow */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-size: 17px;
+}
+
+.add-btn:hover {
+  box-shadow: 0 6px 30px rgba(0, 255, 0, 0.9); /* Stronger green glow */
+  transform: scale(1.05);
+}
+
+/* Fixing height issues and making sure content is scrollable */
+.add {
+  height: auto;
+  min-height: 100vh;
+}
+
+.content {
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+  .add {
+    width: 90%;
+    margin-left: 5vw;
+    margin-top: 20px;
+  }
+
+  .content {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .add-category-price {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .add-product-name,
+  .add-product-description {
+    width: 100%;
+  }
+
+  .add-btn {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .add {
+    height: auto;
+  }
+
+  .content {
+    font-size: 12px;
     padding: 10px;
-    max-width: 120px;
-    scroll-behavior: inherit;
-    
+  }
+
+  .add-btn {
+    padding: 8px;
+  }
+
+  .add-img-upload img {
+    width: 100px;
+  }
 }
-.add-btn{
-    max-width: 120px;
-    padding: 10px;
-    border: none;
-    background-color: black;
-    color: aquamarine;
-    cursor: pointer;
-}
+

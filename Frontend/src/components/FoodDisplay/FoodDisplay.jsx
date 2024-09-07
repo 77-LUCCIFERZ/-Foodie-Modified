@@ -5,7 +5,7 @@ import FoodItem from '../FoodItem/FoodItem'
 
 const FoodDisplay = ({category}) => {
 
-const {food_list}=useContext(StoreContext)
+const {food_list}=useContext(StoreContext);
 
   return (
     <div className='food-display' id="food-display">

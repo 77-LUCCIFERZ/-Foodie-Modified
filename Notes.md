@@ -21,10 +21,12 @@
 21) we first build frontend and then now backend in same folder foodie..
 22) npm init  that will setup package.json file 
 23) then we install all at once we knew we gonna need that npm install express mongoose jsonwebtoken bcrypt cors dotenv body-parser multer stripe validator nodemon  
-24) stripe used for payments , as it also supported in nepal ..The net worth of Stripe is estimated to be over $95 billion, making it one of the most valuable private companies in the world. nodemon === when we save our package the server will be restarted ,cors ==> It allows controlled access to resources located outside of the current domain, which is essential for building modern web applications that need to interact with APIs hosted on different domains.
+24) stripe used for payments , as it also supported in nepal ..(The net worth of Stripe is estimated to be over $95 billion, making it one of the most valuable private companies in the world.) nodemon === when we save our package the server will be restarted ,cors ==> It allows controlled access to resources located outside of the current domain, which is essential for building modern web applications that need to interact with APIs hosted on different domains.
 
 25) we created models folder under backend for food and user through mongoose and schema.
 26) in package.json file we updated script "server": "nodemon server.js" and =-==> npm run server  port is on 4000
-27) For now as it is lieghtweight now instead of postman weare using equvalent extension "thunder client " in vs code that supports light weight rest api in order to avoid the little more complexity of postman ........
+27) For now as it is lieghtweight now instead of postman weare using equvalent extension "thunder client " in vs code that supports light weight rest api bcoz our postman is drunk and givng us some problems every now and then ....
 28) in project main folder for admin panel we added new folder admin and then ==> npm create vite@latest .
 29)  npm i axios react-toastify react-router-dom
+30) axios for     Sending HTTP Requests:   Handling Responses and Errors:   
+31) 

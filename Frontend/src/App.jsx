@@ -10,19 +10,22 @@ import './index.css';
 import SignIn from './components/SignIn/SignIn';
 
 const App = () => {
-  const location = useLocation();
-  const showNavbarFooter = !location.pathname.startsWith('/signin') && !location.pathname.startsWith('/login');
+  const location = useLocation();// here we canm also use window.location.pathname 
+  const showNavbarFooter = !location.pathname.startsWith('/register') && !location.pathname.startsWith('/login');// prevent from loading header and footer in these pages 
 
   return (
     <div className='app'>
       {showNavbarFooter && <Navbar />} {/* Conditionally render Navbar */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<PlaceOrder />} />
         <Route path="/login" element={<LoginPopup />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/Create_account" element={<SignIn />} />
+        <Route path="/register" element={<SignIn />} />
+        <Route path="/signup" element={<SignIn />} />
       </Routes>
       {showNavbarFooter && <Footer />} {/* Conditionally render Footer */}
     </div>
