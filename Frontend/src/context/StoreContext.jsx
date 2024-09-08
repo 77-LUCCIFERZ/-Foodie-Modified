@@ -67,7 +67,7 @@ const addToCart =async (itemId)=>{
     setCartItems((prev)=>({...prev,[itemId]:prev[itemId]+1})) //it increases the count if id of item is matched 
   }
   if(token){
-    await axios.post(url+'/api/cart/add',{itemId},{headers:{token}})
+    await axios.post(url+"/api/cart/add",{itemId},{headers:{token}})
   }
 }
 const removeFromCart = async (itemId)=>{
@@ -81,7 +81,7 @@ const getTotalCartAmount =()=>{
   for(const item in cartItems){
     if(cartItems[item]>0){
       let itemInfo =food_list.find((product)=>product._id===item);
-      totalAmount += itemInfo.price * cartItems[item];
+      totalAmount += itemInfo.price * cartItems[item]; // just some calculations logic to find the total amnt price in  for payment proceed 
     }
    
   }
@@ -95,7 +95,7 @@ const fetchFoodList=async()=>{
 
 const loadCartData=async(token)=>{
   const response =await axios.post(url+"/api/cart/get",{},{headers:{token}});
-  setCartItems(response.data.data);
+  setCartItems(response.data.cartData); // this line took our 2 hrs damnnnnnnn to idenify the error ,kmklwdlkhjdnojiqwhdsn,instead data its cartData
 }
 
   useEffect(()=>{
@@ -106,7 +106,7 @@ async function loadData(){
 
   if(localStorage.getItem("token")){
     setToken(localStorage.getItem("token"));
-    await loadCartData(localStorage.getItem("token"));
+    await loadCartData(localStorage.getItem("token")); // yele hamro frontend site ma application ma localstorage ma token save garxa if user is logged in and will delete the token when logged out accordingly 
   }
 }
 loadData(); 

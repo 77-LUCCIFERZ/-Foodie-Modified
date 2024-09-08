@@ -6,13 +6,13 @@ const Footer = () => {
     <div className='footer'id='footer'>
       <div className="footer-content">
         <div className="footer-content-left">
-<img src={assets.logo} alt="" />
+<img src={assets.logo} className='logo' alt="" />
 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus atque excepturi sed sunt rum voluptatem deleniti non! Eius temporibus quam error cum possimus.
 repeatet.ad culpa earum. Consequatur?</p>
 <div className="footer-social-icons">
-    <img src={assets.facebook_icon} alt="" />
+   <a href="https://www.linkedin.com/in/luccifer-vengance-750856312?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" > <img src={assets.facebook_icon}  alt="" />
     <img src={assets.twitter_icon} alt="" />
-    <img src={assets.linkedin_icon} alt="" />
+    <img src={assets.linkedin_icon}  alt="" /></a>
 </div>
         </div>
         <div className="footer-content-centre">

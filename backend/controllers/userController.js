@@ -28,7 +28,7 @@ res.json({success:true,message:"logged in successfully",token})
 }
 }
 const createToken =(id)=>{
-    return jwt.sign({id},process.env.JWT_SECRET,{expiresIn:"4h"})
+    return jwt.sign({id},process.env.JWT_SECRET,{expiresIn:"12d"}) // is user visits website after 12day of login re loggin is required 
 }
 
 // register user

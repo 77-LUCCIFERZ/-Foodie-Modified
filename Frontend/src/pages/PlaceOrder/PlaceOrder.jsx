@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import "./PlaceOrder.css"
 import { StoreContext } from '../../context/StoreContext'
+import { Link } from 'react-router-dom';
 const PlaceOrder = () => {
   const {getTotalCartAmount}=useContext(StoreContext);
   return (
@@ -46,7 +47,7 @@ const PlaceOrder = () => {
 <b>${getTotalCartAmount()===0?0:getTotalCartAmount()+2} </b>
             </div>
           </div>
-          <button>PROCEED TO PAYMENT</button>
+          <Link to="/payment"> <button>PROCEED TO PAYMENT</button> </Link>
         </div>
 
       </div>

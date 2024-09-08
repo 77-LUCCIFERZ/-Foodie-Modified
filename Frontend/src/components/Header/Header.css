@@ -4,16 +4,16 @@
     background: url("/header_img.png") no-repeat;
 
 background-color: rgba(0, 0, 0, 0.3);
-filter:drop-shadow(25px 25px 40px rgb(116, 39, 210));
+filter:drop-shadow(17px 17px 20px rgb(244, 149, 24));
 background-blend-mode:darken; /* or any other blend mode */
     background-size: contain;
     position: relative;
 }
 .header img{
     background: url("/header_img.png") no-repeat;
-        box-shadow: 0 0 20px 10px rgba(255, 165, 0, 0.7); /* Light orange glow */
+        box-shadow: 0 0 20px 10px rgb(168, 110, 1); /* Light orange glow */
         filter:contrast(6%);
-        filter:drop-shadow(20px 20px 20px yellow);
+       
         background-color: rgba(0, 0, 0, 0.3);
 background-blend-mode:darken; /* or any other blend mode */
 }

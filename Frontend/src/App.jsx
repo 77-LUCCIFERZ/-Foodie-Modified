@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer';
 import LoginPopup from './components/LoginPopup/LoginPopup';
 import './index.css';
 import SignIn from './components/SignIn/SignIn';
+import PaymentForm from './pages/payment/payment';
 
 const App = () => {
   const location = useLocation();// here we canm also use window.location.pathname 
@@ -26,6 +27,8 @@ const App = () => {
         <Route path="/Create_account" element={<SignIn />} />
         <Route path="/register" element={<SignIn />} />
         <Route path="/signup" element={<SignIn />} />
+        <Route path="/payment" element={<PaymentForm/>} />
+
       </Routes>
       {showNavbarFooter && <Footer />} {/* Conditionally render Footer */}
     </div>

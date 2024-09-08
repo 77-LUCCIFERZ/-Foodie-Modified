@@ -202,6 +202,38 @@ background-color: #41dd60;
   color: rgb(0, 0, 0);
   font-weight: 800;
 }
+.login-popup .signin .content .form button {
+  width: 100%; /* Full width of the form container */
+  padding: 20px; /* Increase padding for a larger button */
+  background-color: green; /* Set background color to green */
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px; /* Slightly larger rounded corners */
+  cursor: pointer;
+  font-size: 1.3em; /* Increase font size */
+}
+
+.login-popup .signin .content .form button:hover {
+  opacity: 0.9;
+}
+
+.login-popup .home button {
+  width: 100%; /* Full width of the container div */
+  padding: 20px; /* Increase padding for larger appearance */
+  background-color: rgb(137, 222, 137); /* Green background */
+  color: #ba1515;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px; /* Slightly larger rounded corners */
+  font-size: 1.3em; /* Increase font size */
+  cursor: pointer;
+}
+
+.login-popup .home button:hover {
+  opacity: 20;
+}
+
 
 @media (max-width: 900px) {
   .login-popup section span {

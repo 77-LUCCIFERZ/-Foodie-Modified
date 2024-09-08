@@ -1,114 +1,126 @@
-.navbar{
-    padding: 20px 0px;
+/* Navbar container */
+.navbar {
+    padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #CED1DA; */
-}
-.navbar.logo{
-    width: 150px;
+    font-weight: 800;
 
 }
-.navbar-menu{
+
+/* Logo styling */
+.logo img {
+    width: 10px; /* Default size */
+  object-fit: contain;
+    mix-blend-mode: color-burn;
+}
+
+/* Navbar menu styling */
+.navbar-menu {
     display: flex;
     list-style: none;
     gap: 20px;
-    color:#3a13ae;
-    font-size:18px;
-
+    color: #553ba2;
+    font-size: 18px;
 }
-.navbar-right{
+
+/* Navbar right section styling */
+.navbar-right {
     display: flex;
     align-items: center;
-    gap:40px;
-
+    gap: 40px;
 }
-.navbar button{
+
+/* Button styling */
+.navbar button {
     background: transparent;
     font-size: 16px;
     font-weight: bold;
-    color:blueviolet;
+    color: blueviolet;
     border: 1px solid #2B2E63;
-    padding:10px 30px;
+    padding: 10px 30px;
     border-radius: 50px;
-    cursor:pointer ;
-    transition:0.2;
-    
-    
+    cursor: pointer;
+    transition: 0.2s;
 }
-.navbar button:hover{
+
+.navbar button:hover {
     background-color: #7a25f07c;
     transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
-    transform-style: preserve-3d;
     transform: scale(1.45);
-
-
 }
-.navbar .active{
+
+/* Active menu item styling */
+.navbar .active {
     padding-bottom: 2px;
     border-bottom: 2px solid #57ADBF;
 }
-.navbar li{
+
+/* Navbar menu items */
+.navbar li {
     cursor: pointer;
 }
-.navbar-search-icon{
-    position: relative;
-   
 
-}
-.navbar-search-icon .dot{
-position: absolute;
-min-width: 10px;
-min-height: 10px;
-background-color: tomato;
-border-radius: 5px;
-top:-8px;
-right:-8px;
-
-}
-.navbar-profile{
+/* Search icon and notification dot styling */
+.navbar-search-icon {
     position: relative;
-    
 }
-.navbar-profile:hover .nav-profile-dropdown{
-    display:flex;
+
+.navbar-search-icon .dot {
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    background-color: tomato;
+    border-radius: 50%;
+    top: -8px;
+    right: -8px;
+}
+
+/* Profile dropdown styling */
+.navbar-profile {
+    position: relative;
+}
+
+.navbar-profile:hover .nav-profile-dropdown {
+    display: flex;
     flex-direction: column;
-    gap:10px;
+    gap: 10px;
     background-color: #efe5e3;
     padding: 12px 25px;
     border-radius: 4px;
     border: 1px solid tomato;
     outline: 2px solid white;
-    list-style:none ;
-
-    
-
+    list-style: none;
 }
-.nav-profile-dropdown li{
+
+.nav-profile-dropdown li {
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
 }
-.nav-profile-dropdown img{
-    width:20px;
+
+.nav-profile-dropdown img {
+    width: 20px;
 }
-.nav-profile-dropdown li:hover{
+
+.nav-profile-dropdown li:hover {
     color: tomato;
 }
 
 .nav-profile-dropdown {
-  position: absolute;
-  display: none;
-  right: 0;
-  z-index: 1;
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
 }
+
+/* Media Queries */
 
 /* Large Desktops (1200px and above) */
 @media (max-width: 1200px) {
-    /* Slight adjustments for larger desktops */
-    .navbar .logo {
-        width: 160px;
+    .logo img {
+        width: 100px;
     }
     .navbar-menu {
         gap: 18px;
@@ -128,9 +140,8 @@ right:-8px;
 
 /* Laptops and Small Desktops (up to 1024px) */
 @media (max-width: 1024px) {
-    /* Adjustments for laptops */
-    .navbar .logo {
-        width: 140px;
+    .logo img {
+        width: 70px;
     }
     .navbar-menu {
         gap: 16px;
@@ -147,11 +158,10 @@ right:-8px;
     }
 }
 
-/* Tablets (up to 768px) - Example: iPad */
+/* Tablets (up to 768px) */
 @media (max-width: 768px) {
-    /* Significant changes for tablets */
-    .navbar .logo {
-        width: 120px;
+    .logo img {
+        width: 50px;
     }
     .navbar-menu {
         gap: 14px;
@@ -169,11 +179,10 @@ right:-8px;
     }
 }
 
-/* Large Smartphones (up to 600px) - Example: iPhone Plus, Galaxy S series */
+/* Large Smartphones (up to 600px) */
 @media (max-width: 600px) {
-    /* Adjustments for large smartphones */
-    .navbar .logo {
-        width: 100px;
+    .logo img {
+        width: 30px;
     }
     .navbar-menu {
         display: none; /* Hide menu and show hamburger */
@@ -190,11 +199,10 @@ right:-8px;
     }
 }
 
-/* Medium Smartphones (up to 480px) - Example: iPhone SE, small Android phones */
+/* Medium Smartphones (up to 480px) */
 @media (max-width: 480px) {
-    /* Tailored for medium-sized smartphones */
-    .navbar .logo {
-        width: 90px;
+    .logo img {
+        width: 30px;
     }
     .navbar-right {
         gap: 15px;
@@ -208,11 +216,10 @@ right:-8px;
     }
 }
 
-/* Small Smartphones (up to 360px) - Example: older Android phones */
+/* Small Smartphones (up to 360px) */
 @media (max-width: 360px) {
-    /* Adjustments for smaller smartphones */
-    .navbar .logo {
-        width: 80px;
+    .logo img {
+        width: 30px;
     }
     .navbar-right {
         gap: 10px;
