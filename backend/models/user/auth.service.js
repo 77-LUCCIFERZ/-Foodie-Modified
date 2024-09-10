@@ -2,31 +2,27 @@ import userService from '../user/user.service.js';
 
 class AuthService {
     // Validate activation token
-    validateActivationToken = async (token) => {
+    validateActivationToken =  (token) => {
         try {
             if (!token) {
-                throw { status: 400, message: "Token required for validation"};
+                throw { status: 400, message: "Token required for validation" };
             }
 
-            const user = await userService.getSingleUserByFilter({
-                activationToken: token
-            });
-            user.activeFor = new Date(Date.now() + 6 * 60 * 60 * 1000); // Set active time
+            const user =userService.getSingleUserByFilter({activationToken:token});// activayion token prop should be passed in same line it didnt worked until
 
             if (!user) {
-                throw { status: 400, message: "Token not found or broken or expired" };
+                throw { status: 400, message: "Invalid or expired token ==>auth.service"};
+                
             }
+       
+            
+
             return user;
         } catch (exception) {
-            console.log("Auth service => validateActivationToken => Error", exception);
+            console.log("AuthService => validateActivationToken => Error", exception);
             throw exception;
         }
     }
-
-  
-  
-
-    
 }
 
 export default new AuthService();

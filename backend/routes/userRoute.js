@@ -6,8 +6,10 @@ import authController from "../models/user/auth.controller.js";
 const userRouter =express.Router();
 
 userRouter.post("/register",registerUser)
+userRouter.get('/activate/:token',authController.activateUser)
+userRouter.get('/resend-token/:token', authController.resendActivationToken)
 userRouter.post("/login",loginUser)
-userRouter.use('/activate/:token',authController.activateUser)
+
 
 
 export default userRouter ;

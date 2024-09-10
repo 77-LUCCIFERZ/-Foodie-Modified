@@ -19,10 +19,9 @@ const userSchema =new mongoose.Schema({
                 required:true},
         
     phone:[String],
-    activationToken:{type:String,
-        required:true},
+    activationToken: String,
 
-        activeFor:String,
+        activeFor:String, // this should be date for getTime() func
         status:{
             type:String,
             enum:[...Object.values(GeneralStatus)],
@@ -40,6 +39,6 @@ const userSchema =new mongoose.Schema({
             default:{}}
         },{minimize:false}) // if we dpnt minimize false the cart entry data will not be zcareted coz we haven't passed any there daat
 
-        const userModel=mongoose.models.user || mongoose.model("user",userSchema);
-
+        const userModel1=mongoose.models.user || mongoose.model("user",userSchema);// if the model is already there it will use that or create one if not added models.user it will create new evry time
+const userModel= userModel1;
         export default userModel;

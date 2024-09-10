@@ -1,109 +1,77 @@
-import {GeneralStatus } from "../../config/constants.js";
+import { GeneralStatus } from "../../config/constants.js";
 import userService from "../user/user.service.js";
 import authService from "../user/auth.service.js";
 import jwt from "jsonwebtoken";
-import bcrypt from 'bcrypt';
+import UserService from "../user/user.service.js";
+
 
 class AuthController {
+    // Activate user with token
     activateUser = async (req, res, next) => {
         try {
             const token = req.params.token;
-            const user = await authService.validateActivationToken(token);
-
-            // Ensure `activeFor` is defined in `authService`
-            const tokenCreatedAt = user.activeFor.getTime();
-            const today = Date.now();
-
+            const user = await authService.validateActivationToken(token)
+            const tokenCreatedAt = user.activeFor.getTime()
+            const today = Date.now()
             if (tokenCreatedAt < today) {
-                throw { status: 401, detail: { token: "expired" }, message: "Token expired" };
+                throw { status: 400, detail:{token:'expired'}, message: 'Token expired' }
             }
 
-            user.activationToken = null;
-            user.activeFor = null;
-            user.status = GeneralStatus.ACTIVE;
+            // To Activate
+            // user.activationToken = null,
+            //     user.activeFor = null,
+                user.status = GeneralStatus.ACTIVE;
 
             await user.save();
+            await UserService.sendPostActivationEmail({
+                to: user.email, name: user.name
+            })
 
             res.json({
                 result: null,
-                message: "Your account has been activated successfully. Please login to proceed further.",
+                message: 'Your Account has been activated successfully. Please login to further process.'
+            })
+
+        } catch (e) {
+            next(e)
+        }
+    }
+    // Resend activation token
+    resendActivationToken = async (req, res, next) => {
+        try {
+            const email = req.body.email;
+            const user = await userService.getSingleUserByFilter({ email });
+
+            if (!user || user.status === GeneralStatus.ACTIVE) {
+                throw { status: 400, message: "Invalid request or user already activated" };
+            }
+
+            // Generate a new activation token and set the `activeFor` expiry (6 hours from now)
+            user.activationToken = jwt.sign({ sub: user._id }, process.env.JWT_SECRET, { expiresIn: "6h" });
+            user.activeFor = new Date(Date.now() + (6 * 60 * 60 * 1000)); // Expiry in 6 hours
+
+            await user.save();
+
+            // Sending activation email (userService should handle this)
+            await userService.sendActivationEMail ({
+                to: user.email,
+                name: user.name,
+                token: user.activationToken,
+                sub: "Activate your account"
+            });
+
+            res.json({
+                result: null,
+                message: "Activation token resent successfully.",
                 meta: null
             });
         } catch (exception) {
+            console.log("AuthController => resendActivationToken => Error", exception);
             next(exception);
         }
     };
 
-    // resendActivationToken = async (req, res, next) => {
-    //     try {
-    //         const token = req.params.token || null;
-    //         const user = await authService.validateActivationToken(token);
-
-    //         user.activationToken = randomString(100);
-    //         user.activeFor = new Date(Date.now() + (6 * 60 * 60 * 1000)); // 3 hours
-
-    //         await user.save();
-
-    //         // Sending re-activation email
-    //         await userService.sendActivationEmail({
-    //             to: user.email,
-    //             name: user.name,
-    //             token: user.activationToken,
-    //             sub: "Re-activate your account"
-    //         });
-
-    //         res.json({
-    //             result: null,
-    //             message: "Activation token resent successfully.",
-    //             meta: null
-    //         });
-    //     } catch (exception) {
-    //         console.log("Auth.controller => resendActivationToken => Error", exception);
-    //         next(exception);
-    //     }
-    // };
-
-    login = async (req, res, next) => {
-        try {
-            const { email, password } = req.body;
-            const user = await userService.getSingleUserByFilter({ email });
-
-            if (!userExists) {
-                throw { status: 400, message: "Invalid credentials provided" };
-            }
-
-            if (user && user.status === GeneralStatus.ACTIVE) {
-                if (bcrypt.compareSync(password, userExists.password)) {
-                    const token = jwt.sign({
-                        sub: userExists._id,
-                        type: "bearer"
-                    }, process.env.JWT_SECRET, {
-                        expiresIn: "6h"
-                    });
-
-                  
-
-
-                     res.json({
-                       success:true,
-                        token: {
-                            access: token,
-                            refresh: refreshToken
-                        },
-                        message: "You have successfully logged in.",
-                        meta: null
-                    });
-                } else {
-                    throw { status: 400, message: "Credentials don't match" };
-                }
-            } else {
-                throw { status: 400, message: "User not activated" };
-            }
-        } catch (exception) {
-            next(exception);
-        }
-    };
-
+    
     getLoggedInUser = async (req, res, next) => {
         try {
             res.json({
@@ -119,20 +87,17 @@ class AuthController {
     logout = async (req, res, next) => {
         try {
             const authUser = req.authUser;
-            const currentPat = req.currentsession;
+            const currentSession = req.currentSession;
 
             const query = req.query.logout || null;
             if (query === "all") {
                 // Logout from all sessions
-                await authService.deletePAT({
-                    userId: authUser._id
-                });
+                await authService.deletePAT({ userId: authUser._id });
             } else {
                 // Logout from the current session or token
-                await authService.deletePAT({
-                    _id: currentPat._id
-                });
+                await authService.deletePAT({ _id: currentSession._id });
             }
+
             res.json({
                 result: null,
                 message: "Logged out successfully",

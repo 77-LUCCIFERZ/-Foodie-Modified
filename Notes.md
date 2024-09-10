@@ -25,10 +25,10 @@
 
 25) we created models folder under backend for food and user through mongoose and schema.
 26) in package.json file we updated script "server": "nodemon server.js" and =-==> npm run server  port is on 4000
-27) For now as it is lieghtweight now instead of postman weare using equvalent extension "thunder client " in vs code that supports light weight rest api bcoz our postman is drunk and givng us some problems every now and then ....
+27)postman for api test
 28) in project main folder for admin panel we added new folder admin and then ==> npm create vite@latest .
 29)  npm i axios react-toastify react-router-dom
-30) axios for     Sending HTTP Requests:   Handling Responses and Errors:   
+30) axios for Sending HTTP Requests:   Handling Responses and Errors:   
 31) we have created the admin panel where authenticated users will get to entry data in web just by adding photos and names it will auto -genarte the format for it ..
 32) we have not effeciently made the backend program distriputive and light weight as sir , bcoz as this also initial stage of journey it feels little hard and confusing  to me so... 
 33)Every functions listed works both frontend and backend 
